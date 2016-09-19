@@ -1,4 +1,8 @@
 function fish_greeting
+  if [ (command uname -s) != "Linux" ]
+    return 0
+  end
+
   set -l mem_use_awk '
     /^MemTotal:/{memtotal=$2}
     /^MemFree:/{memfree=$2}
